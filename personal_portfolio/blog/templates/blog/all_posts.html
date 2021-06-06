@@ -1,0 +1,16 @@
+{% extends 'portfolio/base_template.html' %}
+
+{% block content %}
+
+<h1>Following you are able to read all posts on my blog =)</h1>
+<h2>I have written {{ posts.count }} post{{posts.count|pluralize}} so far.</h2>
+<br>
+{% for post in posts %}
+    <a href="{% url 'blog:detail' post.id %}"><h2>{{ post.title }}</h2></a>
+    <h5>{{ post.updated|date:'d M Y, G:i:s e' }}</h5>
+    <p>{{ post.content|striptags|truncatechars:100 }}</p>
+    <br>
+    <br>
+{% endfor %}
+
+{% endblock %}
