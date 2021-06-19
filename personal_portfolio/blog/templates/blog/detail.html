@@ -1,0 +1,9 @@
+{% extends 'portfolio/base_template.html' %}
+
+{% block content %}
+
+<h1>{{ post.title }}</h1>
+<h4>-- {{ post.updated|date:'F jS Y , G:i:s e' }} --</h4>
+<p>{{ post.content|safe }}</p>
+
+{% endblock %}
